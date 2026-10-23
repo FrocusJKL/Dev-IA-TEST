@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario de Estudio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="cabecera">
+      <h1>Diario de Estudio</h1>
+    </header>
+
+    <section class="racha" aria-label="Racha actual y mejor racha">
+      <div class="racha-datos">
+        <div class="racha-bloque">
+          <p class="racha-valor"><span id="racha-numero">0</span> 🔥</p>
+          <p class="racha-texto" id="racha-texto">días seguidos</p>
+        </div>
+        <div class="racha-bloque racha-bloque-mejor">
+          <p class="mejor-valor">🏆 <span id="mejor-racha-numero">0</span></p>
+          <p class="racha-texto">mejor racha</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Nueva sesión</h2>
+      <form id="formulario">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="tema">Tema</label>
+        <input type="text" id="tema" name="tema" required>
+
+        <label for="minutos">Minutos</label>
+        <input type="number" id="minutos" name="minutos" min="1" step="1" required>
+
+        <button type="submit">Guardar sesión</button>
+      </form>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Sesiones</h2>
+      <ul id="lista-sesiones" class="lista-sesiones"></ul>
+      <p id="sin-sesiones" class="sin-sesiones">Todavía no hay sesiones.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
