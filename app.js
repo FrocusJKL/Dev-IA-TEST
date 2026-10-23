@@ -12,6 +12,8 @@ const rachaNumero = document.getElementById("racha-numero");
 const rachaTexto = document.getElementById("racha-texto");
 const mejorRachaNumero = document.getElementById("mejor-racha-numero");
 const minutosSemana = document.getElementById("minutos-semana");
+const diasMes = document.getElementById("dias-mes");
+const diasMesTexto = document.getElementById("dias-mes-texto");
 
 // ---------------------------------------------------------------------------
 // Fechas (siempre en la hora local del usuario, nunca en UTC)
@@ -165,6 +167,24 @@ function formatearMinutos(minutos) {
 }
 
 // ---------------------------------------------------------------------------
+// Días del mes
+// ---------------------------------------------------------------------------
+
+// Cuenta los días distintos del mes en curso con al menos una sesión.
+// El mes se saca del texto de hoy ("AAAA-MM-DD"), sin aritmética de fechas, y
+// se compara como texto igual que en calcularMinutosSemana.
+function calcularDiasMes() {
+  const hoy = fechaLocalISO();
+  const inicioMes = `${hoy.slice(0, 7)}-01`;
+
+  const dias = new Set();
+  for (const sesion of sesiones) {
+    if (sesion.fecha >= inicioMes && sesion.fecha <= hoy) dias.add(sesion.fecha);
+  }
+  return dias.size;
+}
+
+// ---------------------------------------------------------------------------
 // Mostrar datos en la página
 // ---------------------------------------------------------------------------
 
@@ -183,6 +203,10 @@ function mostrarRacha() {
   mejorRachaNumero.textContent = calcularMejorRacha();
   minutosSemana.textContent = formatearMinutos(calcularMinutosSemana());
   rachaTexto.textContent = racha === 1 ? "día seguido" : "días seguidos";
+
+  const dias = calcularDiasMes();
+  diasMes.textContent = dias;
+  diasMesTexto.textContent = dias === 1 ? "día" : "días";
 }
 
 function mostrarSesiones() {

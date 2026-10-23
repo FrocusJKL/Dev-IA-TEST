@@ -93,6 +93,11 @@ h2 {
 /* ---------- Minutos de la semana ---------- */
 
 .semana {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 28px;
+  flex-wrap: wrap;
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.45);
