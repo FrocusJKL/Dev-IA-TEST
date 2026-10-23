@@ -11,6 +11,7 @@ const sinSesiones = document.getElementById("sin-sesiones");
 const rachaNumero = document.getElementById("racha-numero");
 const rachaTexto = document.getElementById("racha-texto");
 const mejorRachaNumero = document.getElementById("mejor-racha-numero");
+const minutosSemana = document.getElementById("minutos-semana");
 
 // ---------------------------------------------------------------------------
 // Fechas (siempre en la hora local del usuario, nunca en UTC)
@@ -132,6 +133,38 @@ function calcularMejorRacha() {
 }
 
 // ---------------------------------------------------------------------------
+// Minutos de la semana
+// ---------------------------------------------------------------------------
+
+// Primer día de la semana (lunes) como "AAAA-MM-DD", en hora local.
+function inicioDeSemana() {
+  const fecha = new Date();
+  const diaSemana = fecha.getDay() === 0 ? 7 : fecha.getDay(); // domingo = 7
+  fecha.setDate(fecha.getDate() - (diaSemana - 1));
+  return fechaLocalISO(fecha);
+}
+
+// Suma los minutos estudiados de la semana en curso (del lunes a hoy),
+// sin contar sesiones de fechas futuras. Varias sesiones el mismo día suman todas.
+function calcularMinutosSemana() {
+  const inicio = inicioDeSemana();
+  const hoy = fechaLocalISO();
+  let total = 0;
+  for (const sesion of sesiones) {
+    if (sesion.fecha >= inicio && sesion.fecha <= hoy) total += sesion.minutos;
+  }
+  return total;
+}
+
+// "45 min" si es menos de una hora, si no "3 h 45 min" (o "3 h" si es exacto).
+function formatearMinutos(minutos) {
+  if (minutos < 60) return `${minutos} min`;
+  const horas = Math.floor(minutos / 60);
+  const restantes = minutos % 60;
+  return restantes === 0 ? `${horas} h` : `${horas} h ${restantes} min`;
+}
+
+// ---------------------------------------------------------------------------
 // Mostrar datos en la página
 // ---------------------------------------------------------------------------
 
@@ -148,6 +181,7 @@ function mostrarRacha() {
   const racha = calcularRacha();
   rachaNumero.textContent = racha;
   mejorRachaNumero.textContent = calcularMejorRacha();
+  minutosSemana.textContent = formatearMinutos(calcularMinutosSemana());
   rachaTexto.textContent = racha === 1 ? "día seguido" : "días seguidos";
 }
 

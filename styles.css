@@ -90,6 +90,20 @@ h2 {
   opacity: 0.9;
 }
 
+/* ---------- Minutos de la semana ---------- */
+
+.semana {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.semana-valor {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
 /* ---------- Tarjetas ---------- */
 
 .tarjeta {

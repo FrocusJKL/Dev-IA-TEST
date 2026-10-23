@@ -25,6 +25,8 @@ pero ayer sí, la racha sigue viva y se cuenta desde ayer.
 - Mejor racha = la mayor corrida histórica de días consecutivos con sesión, contando solo
 hoy y días anteriores. Es independiente de la racha actual: una corrida ya rota sigue
 contando (la actual puede ser 0 y la mejor 3).
+- La "semana" empieza en lunes (ISO 8601), calculado en fecha local. El total de minutos
+de la semana se calcula desde las sesiones, no se guarda: las fechas futuras no suman.
 - Varias sesiones el mismo día cuentan como un solo día. Las fechas futuras no suman.
 ## Forma de trabajar
 - Haz solo lo que se pide: no añadas funcionalidades por tu cuenta.
