@@ -16,7 +16,10 @@ restringir el formulario).
 - AGENTS.md se corrigió para describir el código real (clave `diarioDeEstudio.sesiones`,
 campos `{ id, fecha, tema, minutos, creadoEn }`): la documentación manda sobre el código,
 pero una doc que no coincide hace que un agente "arregle" el código a lo que dice la doc.
+- Skill local en `.agents/skills/local-dates/SKILL.md`: regla de fechas del proyecto.
 ## Aprendizajes y errores a evitar
+- Skills de OpenCode: el archivo DEBE llamarse exactamente `SKILL.md` (mayúsculas) si va
+en su propio directorio; `skill.md` en minúsculas no se detecta y `/skills` no la muestra.
 - Contraste racha actual → mejor racha: mirar hacia atrás desde hoy ≠ mayor corrida del
 historial. La actual puede ser 0 y la mejor 3. Probar ambos con huecos de un día.
 - Métricas distintas sobre los mismos días: la racha cuenta el día una vez; los minutos

@@ -1,7 +1,6 @@
 ---
 name: local-dates
-description: Úsala siempre que escribas, modifiques o revises código que trabaje con
-fechas, días, semanas o rachas en el Diario de Estudio.
+description: Úsala siempre que escribas, modifiques o revices código que trabaje con fechas, días, semanas o rachas en el Diario de Estudio.
 ---
 # Fechas locales en el Diario de Estudio
 Las fechas son la mayor fuente de bugs de este proyecto. Sigue esta guía siempre que
