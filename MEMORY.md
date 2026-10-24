@@ -21,6 +21,9 @@ pero una doc que no coincide hace que un agente "arregle" el código a lo que di
 - Días del mes: días distintos del mes en curso con ≥1 sesión, junto a "esta semana".
 Se calculan (no se guardan) por el mismo motivo que racha y minutos: evitar
 desincronización. Sin funciones de fecha nuevas: filtro por texto "AAAA-MM-DD".
+- Diseño "cuaderno": papel cuadriculado, hojas blancas, tinta de bolígrafo (azul para
+acciones/foco) y la racha marcada con un subrayador amarillo. Sin fuentes externas ni
+degradados decorativos: la identidad viene de Georgia (serif, web-safe) + system-ui.
 ## Aprendizajes y errores a evitar
 - Skills de OpenCode: el archivo DEBE llamarse exactamente `SKILL.md` (mayúsculas) si va
 en su propio directorio; `skill.md` en minúsculas no se detecta y `/skills` no la muestra.
